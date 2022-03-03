@@ -5,8 +5,17 @@ import '../styles/App.css'
 // started mock server
 worker.start();
 const App = () => {
-
-   const [products, setProducts] =useState([]);
+   
+ // defined type for products
+ interface Iproduct{
+   name:string;
+   price: number;
+  rating:number;
+  catergory:string;
+  image: string;
+  id:string
+ }
+   const [products, setProducts] =useState<Iproduct[]>([]);
    
   //fetching data from mock server Api
   const getProducts = async () =>{
