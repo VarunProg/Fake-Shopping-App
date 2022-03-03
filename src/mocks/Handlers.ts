@@ -7,7 +7,7 @@ const products = Array.from({ length: 20 }, () => ({
   price: faker.commerce.price(),
   rating: faker.datatype.number(5),
   catergory: faker.commerce.product(),
-  image: faker.image.image(200, 200, true),
+  image: faker.image.image(300, 300, true),
   id: faker.datatype.uuid(),
 }));
 

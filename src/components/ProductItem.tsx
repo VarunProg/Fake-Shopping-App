@@ -12,7 +12,7 @@ const ProductItem = ({ product }: Iprops) => {
       <div className="item-container">
         <img src={product.image} alt="" />
         <footer>
-          <h2>{product.name}</h2>
+          <h3>{product.name}</h3>
           <p> €{product.price}</p>
           <p>{product.rating}</p>
         </footer>
