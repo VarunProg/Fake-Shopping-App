@@ -6,6 +6,8 @@ import '../styles/App.css'
 worker.start();
 function App() {
 
+ 
+
   //fetching data from mock server Api
   const getUsers = async () =>{
      const res = await fetch ('/user');
