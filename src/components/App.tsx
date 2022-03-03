@@ -2,27 +2,29 @@ import { useEffect, useState } from 'react'
 import { worker } from '../mocks/Browser'
 
 import '../styles/App.css'
-
+// started mock server
 worker.start();
-function App() {
+const App = () => {
 
- //windows . => to get emoji's
-
+   const [products, setProducts] =useState([]);
+   
   //fetching data from mock server Api
-  const getUsers = async () =>{
+  const getProducts = async () =>{
      const res = await fetch ('/products');
-     const data = await res.json()
-     console.log(data)
+     const json = await res.json()
+     console.log(json.items)
+     setProducts(json.items);
   }
   useEffect( ()=>{
    // call getUsers function
-   getUsers()
+   getProducts();
   },[])
   return (
    <>
-
+      <h1>Hi Varun</h1>
    </>
   )
 }
 
-export default App
+export default App;
+

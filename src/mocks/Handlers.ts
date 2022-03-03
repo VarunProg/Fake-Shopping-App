@@ -19,9 +19,8 @@ export const handlers = [
   //it's like a backend whatever data will be generated here and will fetch in App
   rest.get("/products", (req, res, ctx) => {
     return res(
-      // Respond with a 200 status code
-      //   ctx.status(200),
-      ctx.json({ items: products })
+      // sending data as an object items: products, total:products.length, success: true
+      ctx.json({ items: products, total: products.length, success: true })
     );
   }),
 ];
