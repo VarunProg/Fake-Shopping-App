@@ -20,7 +20,11 @@ const App = () => {
   //fetching data from mock server Api
   const getProducts = async () => {
     const res = await fetch("/products");
-    const json = await res.json();
+    const json: {
+      items: Iproduct[];
+      success: boolean;
+      total: number;
+    } = await res.json();
     console.log(json.items);
     setProducts(json.items);
   };
