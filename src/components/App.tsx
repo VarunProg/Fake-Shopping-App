@@ -4,16 +4,16 @@ import "../styles/App.css";
 import ProductItem from "./ProductItem";
 // started mock server
 worker.start();
+// defined type for products and exported
+export interface Iproduct {
+  name: string;
+  price: number;
+  rating: number;
+  catergory: string;
+  image: string;
+  id: string;
+}
 const App = () => {
-  // defined type for products
-  interface Iproduct {
-    name: string;
-    price: number;
-    rating: number;
-    catergory: string;
-    image: string;
-    id: string;
-  }
   //set interface to state
   const [products, setProducts] = useState<Iproduct[]>([]);
 
@@ -34,7 +34,6 @@ const App = () => {
   }, []);
   return (
     <>
-      <h1>Hi Varun</h1>
       {/* sending state as a prop */}
       <div className="container">
         {products.map((product) => (
