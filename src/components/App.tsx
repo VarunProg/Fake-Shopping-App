@@ -6,11 +6,11 @@ import '../styles/App.css'
 worker.start();
 function App() {
 
- 
+ //windows . => to get emoji's
 
   //fetching data from mock server Api
   const getUsers = async () =>{
-     const res = await fetch ('/user');
+     const res = await fetch ('/products');
      const data = await res.json()
      console.log(data)
   }
