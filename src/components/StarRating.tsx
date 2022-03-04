@@ -1,6 +1,10 @@
 import React from "react";
-
-const StarRating = () => {
+interface IStarProps {
+  totalRating: number;
+  currentRating: number;
+}
+// recieved props and destructured totalRating and currentRating
+const StarRating = ({ totalRating, currentRating }: IStarProps) => {
   return <></>;
 };
 

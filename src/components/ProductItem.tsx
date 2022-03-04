@@ -1,7 +1,7 @@
 import React from "react";
 import { Iproduct } from "./App";
 import StarRating from "./StarRating";
-
+// imporeted interface Iproduct and implemented to the productItem props
 interface Iprops {
   product: Iproduct;
 }
