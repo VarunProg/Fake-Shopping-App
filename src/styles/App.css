@@ -31,6 +31,6 @@ p {
 
 /* for star rating component*/
 .star-container svg {
-  width: 50px;
+  width: 40px;
   fill: gold;
 }

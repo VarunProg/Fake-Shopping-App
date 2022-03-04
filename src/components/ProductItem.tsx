@@ -17,7 +17,15 @@ const ProductItem = ({ product }: Iprops) => {
           <p> €{product.price}</p>
           {/* sending props to StarRating currentRating and totalRating */}
           {/* <p>{product.rating}</p> */}
-          <p>{<StarRating totalRating={5} currentRating={product.rating} />}</p>
+          <p>
+            {
+              <StarRating
+                totalRating={5}
+                currentRating={product.rating}
+                fill="orange"
+              />
+            }
+          </p>
         </footer>
       </div>
     </>
