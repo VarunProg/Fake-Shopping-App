@@ -28,3 +28,9 @@ body {
 p {
   text-align: center;
 }
+
+/* for star rating component*/
+.star-container svg {
+  width: 50px;
+  fill: gold;
+}
