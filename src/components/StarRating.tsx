@@ -17,6 +17,8 @@ const SolidStar = () => {
 };
 // recieved props and destructured totalRating and currentRating
 const StarRating = ({ totalRating, currentRating }: IStarProps) => {
+  //created an empty array of currentRating
+  const starArr = Array.from({ length: currentRating });
   return <></>;
 };
 
