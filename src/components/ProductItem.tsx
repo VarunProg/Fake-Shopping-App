@@ -1,5 +1,6 @@
 import React from "react";
 import { Iproduct } from "./App";
+import StarRating from "./StarRating";
 
 interface Iprops {
   product: Iproduct;
@@ -14,7 +15,9 @@ const ProductItem = ({ product }: Iprops) => {
         <footer>
           <h3>{product.name}</h3>
           <p> €{product.price}</p>
-          <p>{product.rating}</p>
+          {/* sending props to StarRating currentRating and totalRating */}
+          {/* <p>{product.rating}</p> */}
+          <p>{<StarRating totalRating={5} currentRating={product.rating} />}</p>
         </footer>
       </div>
     </>
