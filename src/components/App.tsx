@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
-
 import { worker } from "../mocks/Browser";
 import "../styles/App.css";
-import ProductItem from "./ProductItem";
 import ProductList from "./ProductList";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 // started mock server
 worker.start();
 // defined type for products and exported
@@ -19,9 +17,11 @@ const App = () => {
   //set interface to state
 
   return (
-    <>
-      <ProductList />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ProductList />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
