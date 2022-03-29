@@ -7,7 +7,7 @@ const ProductList = () => {
 
   //fetching data from mock server Api
   const getProducts = async () => {
-    const res = await fetch("/products");
+    const res = await fetch("/newProducts");
     const json: {
       items: Iproduct[];
       success: boolean;
