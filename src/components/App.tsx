@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewProduct from "./NewProduct";
 import Navbar from "./Navbar";
 import About from "./About";
+import { ToastContainer, toast } from "react-toastify";
 // started mock server
 worker.start();
 // defined type for products and exported
@@ -15,6 +16,7 @@ export interface Iproduct {
   catergory: string;
   image: string;
   id: string;
+  description: string;
 }
 const App = () => {
   //set interface to state
@@ -22,6 +24,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
+      <ToastContainer position="top-center" />
       <Routes>
         <Route path="/" element={<ProductList />} />
         <Route path="/About" element={<About />} />

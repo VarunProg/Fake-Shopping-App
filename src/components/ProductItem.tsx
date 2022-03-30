@@ -15,6 +15,8 @@ const ProductItem = ({ product }: Iprops) => {
         <footer>
           <h3>{product.name}</h3>
           <p> €{product.price}</p>
+          <p> {product.catergory}</p>
+          <p> {product.description}</p>
           {/* sending props to StarRating currentRating and totalRating */}
           {/* <p>{product.rating}</p> */}
           <p>

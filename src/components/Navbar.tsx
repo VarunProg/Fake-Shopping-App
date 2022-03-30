@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 const sizeMedia = window.matchMedia("(max-width: 720px)");
+import hamburger from "../images/hamburgerFinal.png";
 
 const Navbar = () => {
-  const [isMobile, setIsMobile] = useState();
+  const [isMobile, setIsMobile] = useState<boolean>();
 
   //   console.log(sizeMedia);
   useEffect(() => {
@@ -23,7 +24,11 @@ const Navbar = () => {
           </h3>
           {/* to show data on small screen isMobile conditonal rendering*/}
           {isMobile ? (
-            "hamburger"
+            <img
+              style={{ height: "50px" }}
+              src={hamburger}
+              alt="HamburgerMenu"
+            />
           ) : (
             <ul>
               {/* to shoow list on large screen */}
@@ -34,7 +39,7 @@ const Navbar = () => {
                 <Link to="/About">About</Link>
               </li>
               <li>
-                <Link to="/product/new">UploadNewItems</Link>
+                <Link to="/product/new">UploadNewItem</Link>
               </li>
             </ul>
           )}

@@ -10,9 +10,10 @@ const products = Array.from({ length: 20 }, () => ({
   catergory: faker.commerce.product(),
   image: faker.image.image(300, 300, true),
   id: faker.datatype.uuid(),
+  description: faker.commerce.productDescription(),
 }));
 
-//for categories
+//for categories to show option in NewProducts
 const categoryArr = ["jeans", "t-shirts", "shirt", "shoes"];
 
 export const handlers = [
@@ -41,15 +42,12 @@ export const handlers = [
     //set data to localforage id and req.body
     await localforage.setItem(req.id, JSON.stringify(req.body));
     console.log(getItem, "handlers");
-
-    // const storeData = localStorage.setItem("key", JSON.stringify(req));
-
     return res(ctx.json({ success: true }));
   }),
 
   //for new products getting data from indexdDB, implemented localforage iterate
   rest.get("/newProducts", async (req, res, ctx) => {
-    //cretaed arr variable to push indexed db data into it
+    //cretaed arr variable to push indexedDB data into it
     const arr: any = [];
     await localforage.iterate(function (value: string, key, iterationNumber) {
       //parsed values of indexedDb
@@ -60,7 +58,7 @@ export const handlers = [
     });
     console.log(arr);
     return res(
-      //merge products and arr which is inserting values
+      //merge products and arr which hold data of indexedDB localforage
       ctx.json({ items: [...products, ...arr], success: true })
     );
   }),

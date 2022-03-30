@@ -1,13 +1,14 @@
 import React, { FormEventHandler, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const NewProduct = () => {
-  const [category, setCategory] = useState<Array<string>>([]);
+  const [catergory, setCatergory] = useState<Array<string>>([]);
   //fetch categories
   const fetchCategories = async () => {
     const res = await fetch("/categories");
     const data = await res.json();
     console.log(data, "data");
-    setCategory(data.items);
+    setCatergory(data.items);
   };
 
   useEffect(() => {
@@ -20,17 +21,35 @@ const NewProduct = () => {
     e.preventDefault();
     const formElem = e.currentTarget;
     //console.log(formElem, "fromElem"); // targeted all elements
-    const data = new FormData(formElem);
+    const formData = new FormData(formElem);
+    const imageFile = formData.get("image") as File;
+    if (imageFile.size === 0) {
+      toast("Please select Image");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.readAsDataURL(imageFile);
+    reader.onloadend = async (e) => {
+      // console.log(e.target?.result);
+      const imageUrl = e.target?.result;
+      if (!imageUrl) {
+        return toast("failed to convert image");
+      }
+      formData.set("image", imageUrl.toString());
+      const postData = await fetch("/add", { method: "POST", body: formData });
+      formElem.reset();
+      toast("Data Submitted");
+    };
+
     // console.log(data, "form DATA"); //creates form data object
     // console.log(data.getAll("productName"));
 
-    const postData = await fetch("/add", { method: "POST", body: data });
-    const res = await postData.json();
-    console.log(res, "check data if coming or not");
+    // const postData = await fetch("/add", { method: "POST", body: data });
   };
 
   return (
-    <div>
+    <div className="form">
       <form
         onSubmit={handleSubmit}
         style={{
@@ -41,22 +60,19 @@ const NewProduct = () => {
           margin: "10px",
         }}
       >
-        <input
-          type="text"
-          name="productName"
-          placeholder="product name"
-          required
-        />
+        <input type="text" name="name" placeholder="Product Name" required />
+        <input type="text" name="price" placeholder="Price" required />
+        <input type="text" name="rating" placeholder="Rating" required />
         <textarea
           name="description"
           id=""
           cols={30}
           rows={10}
-          placeholder="description"
+          placeholder="Description"
         />
-        <select name="category" id="">
+        <select name="catergory" id="">
           <option value="">Select Product</option>
-          {category.map((catg) => {
+          {catergory.map((catg) => {
             return (
               <option key={catg} value={catg}>
                 {catg}
