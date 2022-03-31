@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useAppSelector } from "../Hooks";
 import { Iproduct } from "./App";
 import ProductItem from "./ProductItem";
 
@@ -20,6 +21,10 @@ const ProductList = () => {
     // call getUsers function
     getProducts();
   }, []);
+  const selector = useAppSelector((state) => state.cart);
+  useEffect(() => {
+    console.log(selector);
+  }, [selector]);
   return (
     <div className="container">
       {products.map((product: Iproduct) => (
