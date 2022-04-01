@@ -1,4 +1,4 @@
-import { worker } from "../mocks/Browser";
+import { worker } from "../mocks/browser";
 import "../styles/App.css";
 import ProductList from "./ProductList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -8,8 +8,6 @@ import About from "./About";
 import { ToastContainer, toast } from "react-toastify";
 import { store } from "../Store/Store";
 import { Provider } from "react-redux";
-import { useEffect } from "react";
-import { useAppSelector } from "../Hooks";
 // started mock server
 worker.start();
 // defined type for products and exported

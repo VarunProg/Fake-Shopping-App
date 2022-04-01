@@ -24,7 +24,7 @@ const Navbar = () => {
           </h3>
           {/* to show data on small screen isMobile conditonal rendering*/}
           {isMobile ? (
-            <img
+            <img 
               style={{ height: "50px" }}
               src={hamburger}
               alt="HamburgerMenu"
