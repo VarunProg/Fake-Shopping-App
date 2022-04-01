@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { FaShoppingCart } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../Hooks";
 const sizeMedia = window.matchMedia("(max-width: 720px)");
 import hamburger from "../images/hamburgerFinal.png";
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState<boolean>();
+  const cartState = useAppSelector((state) => state.cart);
 
   //   console.log(sizeMedia);
   useEffect(() => {
@@ -24,7 +27,7 @@ const Navbar = () => {
           </h3>
           {/* to show data on small screen isMobile conditonal rendering*/}
           {isMobile ? (
-            <img 
+            <img
               style={{ height: "50px" }}
               src={hamburger}
               alt="HamburgerMenu"
@@ -40,6 +43,10 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/product/new">UploadNewItem</Link>
+              </li>
+              <li>
+                <FaShoppingCart size={23} />
+                <span>{cartState.totalItems}</span>
               </li>
             </ul>
           )}
