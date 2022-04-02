@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   background-color: #ecf0f1;
 }
@@ -8,6 +13,9 @@ body {
   gap: 10px;
 }
 .item-container {
+      display: flex;
+      gap: 5px;
+      flex-direction: column;
   box-sizing: border-box;
   /* border: 2px solid red; */
   background-color: #fff;
@@ -27,7 +35,16 @@ body {
 .item-container h3,
 p {
   text-align: center;
+  margin-bottom: 4px;
   word-break: break-all;
+}
+
+.item-container button{
+  /* margin-left: 35%; */
+  padding: 7px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 /* for star rating component*/
@@ -52,10 +69,11 @@ li {
 }
 ul {
   display: flex;
-  /* border: 1px solid red; */
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 300px;
   flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
 }
 ul li a {
   text-decoration: none;

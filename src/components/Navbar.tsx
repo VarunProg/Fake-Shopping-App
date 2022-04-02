@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { MdOutlineInsertLink } from "react-icons/md";
+import { AiFillHome } from "react-icons/ai";
+// import { SiAboutdotme } from "react-icons/si";
 
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../Hooks";
@@ -36,13 +39,19 @@ const Navbar = () => {
             <ul>
               {/* to shoow list on large screen */}
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/">
+                  <AiFillHome size={23} />
+                </Link>
               </li>
+              {/* <li>
+                <Link to="/About">
+                  <SiAboutdotme size={23} />
+                </Link>
+              </li> */}
               <li>
-                <Link to="/About">About</Link>
-              </li>
-              <li>
-                <Link to="/product/new">UploadNewItem</Link>
+                <Link to="/product/new">
+                  <MdOutlineInsertLink size={28} />
+                </Link>
               </li>
               <li>
                 <FaShoppingCart size={23} />
