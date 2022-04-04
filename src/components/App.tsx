@@ -28,7 +28,7 @@ const App = () => {
         <ToastContainer position="top-center" />
         <Routes>
           <Route path="/" element={<ProductList />} />
-          <Route path="/About" element={<About />} />
+          {/* <Route path="/About" element={<About />} /> */}
           <Route path="product/new" element={<NewProduct />} />
         </Routes>
       </BrowserRouter>
