@@ -108,6 +108,15 @@ h3 a {
   top: -5px;
   right: -10px;
 }
+/* cartItmes */
+.cartItmes{
+  position: absolute;
+  width: 250px;
+  height: 500px;
+  border: 1px solid red;
+  background: white;
+  right: 0;
+}
 /* mobile screen */
 .mobileMenu{
   position: absolute;

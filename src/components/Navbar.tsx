@@ -12,8 +12,8 @@ console.log(sizeMedia.matches, "media query");
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState<boolean>(sizeMedia.matches); //media query
   const [showMenu, setShowMenu] = useState<boolean>(false); //toggle classes to show li list
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const { pathname } = useLocation();
-  console.log(location, "location");
   const cartState = useAppSelector((state) => state.cart);
 
   //   console.log(sizeMedia);
@@ -50,9 +50,23 @@ const Navbar = () => {
             <MdOutlineInsertLink size={28} />
           </Link>
         </li>
-        <li className={`${pathname === "#" ? "active" : ""} cartIcon`}>
+        <li
+          className={`${pathname === "#" ? "active" : ""} cartIcon`}
+          onClick={() => {
+            setIsCartOpen(!isCartOpen);
+          }}
+        >
           <FaShoppingCart size={23} />
           <span>{cartState.totalItems}</span>
+          {isCartOpen ? (
+            <div className="cartItmes">
+              <ul>
+                {cartState.items.map((item) => {
+                  return <li>{item.name}</li>;
+                })}
+              </ul>
+            </div>
+          ) : null}
         </li>
       </ul>
     );
