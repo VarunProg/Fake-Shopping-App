@@ -60,11 +60,15 @@ const Navbar = () => {
           <span>{cartState.totalItems}</span>
           {isCartOpen ? (
             <div className="cartItmes">
-              <ul>
-                {cartState.items.map((item) => {
-                  return <li>{item.name}</li>;
-                })}
-              </ul>
+              {cartState.totalItems === 0 ? (
+                <h3>No items in Cart</h3>
+              ) : (
+                <ul>
+                  {cartState.items.map((item) => {
+                    return <li>{item.name}</li>;
+                  })}
+                </ul>
+              )}
             </div>
           ) : null}
         </li>
@@ -108,3 +112,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+//show message if list is empty
+//add remove item button
