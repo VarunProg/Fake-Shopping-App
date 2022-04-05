@@ -88,6 +88,26 @@ h3 a {
 .hamburger{
   position: relative;
 }
+/* active class */
+.active{
+  border-bottom: 2px solid black;
+}
+/* cart */
+.cartIcon{
+  position: relative;
+}
+.cartIcon span{
+  position: absolute;
+  background-color: tomato;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  /* line-height: 2px; */
+  font-size: 12px;
+  top: -5px;
+  right: -10px;
+}
 /* mobile screen */
 .mobileMenu{
   position: absolute;
