@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineInsertLink } from "react-icons/md";
+import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { AiFillHome, AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 // import { SiAboutdotme } from "react-icons/si";
 
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { useAppSelector } from "../Hooks";
+import { useAppDispatch, useAppSelector } from "../Hooks";
+import { removeProduct } from "../Store/cartSlice";
 const sizeMedia = window.matchMedia("(max-width: 720px)");
 console.log(sizeMedia.matches, "media query");
 
@@ -15,6 +17,7 @@ const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { pathname } = useLocation();
   const cartState = useAppSelector((state) => state.cart);
+  const dispatch = useAppDispatch();
 
   //   console.log(sizeMedia);
   //event listener on screen size change
@@ -65,7 +68,19 @@ const Navbar = () => {
               ) : (
                 <ul>
                   {cartState.items.map((item) => {
-                    return <li>{item.name}</li>;
+                    return (
+                      <li>
+                        {item.name}{" "}
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation(); //event prevent bubbled
+                            dispatch(removeProduct({ id: item.id }));
+                          }}
+                        >
+                          <IoIosRemoveCircleOutline />
+                        </button>
+                      </li>
+                    );
                   })}
                 </ul>
               )}
@@ -113,5 +128,4 @@ const Navbar = () => {
 
 export default Navbar;
 
-//show message if list is empty
 //add remove item button
