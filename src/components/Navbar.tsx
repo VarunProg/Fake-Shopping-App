@@ -16,8 +16,8 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false); //toggle classes to show li list
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { pathname } = useLocation();
-  const cartState = useAppSelector((state) => state.cart);
-  const dispatch = useAppDispatch();
+  const cartState = useAppSelector((state) => state.cart); // get cart state
+  const dispatch = useAppDispatch(); // updatind state
 
   //   console.log(sizeMedia);
   //event listener on screen size change
@@ -67,7 +67,7 @@ const Navbar = () => {
                 <h3>No items in Cart</h3>
               ) : (
                 <ul>
-                  {cartState.items.map((item) => {
+                  {[...cartState.items].map((item) => {
                     return (
                       <li>
                         {item.name}{" "}

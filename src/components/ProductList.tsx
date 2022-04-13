@@ -14,17 +14,13 @@ const ProductList = () => {
       success: boolean;
       total: number;
     } = await res.json();
-    console.log(json.items);
+    // console.log(json.items);
     setProducts(json.items);
   };
   useEffect(() => {
     // call getUsers function
     getProducts();
   }, []);
-  const selector = useAppSelector((state) => state.cart);
-  useEffect(() => {
-    console.log(selector);
-  }, [selector]);
   return (
     <div className="container">
       {products.map((product: Iproduct) => (

@@ -68,7 +68,7 @@ nav {
 li {
   list-style: none;
 }
-ul {
+ ul {
   display: flex;
   justify-content: space-evenly;
   width: 300px;
@@ -113,7 +113,7 @@ h3 a {
   position: absolute;
   width: 250px;
   height: 500px;
-  border: 1px solid red;
+  border: 1px solid black;
   background: white;
   right: 0;
 }
