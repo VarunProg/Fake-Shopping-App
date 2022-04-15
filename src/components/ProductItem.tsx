@@ -16,13 +16,14 @@ const ProductItem = ({ product }: Iprops) => {
     dispatch(addProduct(product));
   };
   //disable button on click
-  const isAlreadyInCart = () => {
-    if (ids.includes(product.id)) {
-      return true;
-    }
-    return false;
-  };
-
+  // const isAlreadyInCart = () => {
+  //   if (ids.includes(product.id)) {
+  //     return true;
+  //   }
+  //   return false;
+  // };
+  //disabled data on click
+  const isAlreadyInCart = ids.includes(product.id);
   return (
     <>
       <div className="item-container">
@@ -44,8 +45,8 @@ const ProductItem = ({ product }: Iprops) => {
             }
           </p>
         </footer>
-        <button disabled={isAlreadyInCart()} onClick={addToCart}>
-          Add to cart
+        <button disabled={isAlreadyInCart} onClick={addToCart}>
+          {isAlreadyInCart ? "Added to Cart" : "Add to cart"}
         </button>
       </div>
     </>
