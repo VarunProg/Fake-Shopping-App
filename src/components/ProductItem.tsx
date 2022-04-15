@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppDispatch } from "../Hooks";
+import { useAppDispatch, useAppSelector } from "../Hooks";
 import { addProduct } from "../Store/cartSlice";
 import { Iproduct } from "./App";
 import StarRating from "./StarRating";
@@ -11,9 +11,18 @@ interface Iprops {
 // recieved props and destructured props data and set imported data type to props
 const ProductItem = ({ product }: Iprops) => {
   const dispatch = useAppDispatch();
+  const ids = useAppSelector((state) => state.cart.ids);
   const addToCart = () => {
     dispatch(addProduct(product));
   };
+  //disable button on click
+  const isAlreadyInCart = () => {
+    if (ids.includes(product.id)) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <>
       <div className="item-container">
@@ -35,7 +44,9 @@ const ProductItem = ({ product }: Iprops) => {
             }
           </p>
         </footer>
-        <button onClick={addToCart}>Add to cart</button>
+        <button disabled={isAlreadyInCart()} onClick={addToCart}>
+          Add to cart
+        </button>
       </div>
     </>
   );
