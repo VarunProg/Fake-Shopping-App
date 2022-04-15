@@ -5,7 +5,7 @@ import localforage, { getItem, setItem } from "localforage";
 // created fake data of length 20
 const products = Array.from({ length: 20 }, () => ({
   name: faker.commerce.productName(),
-  price: faker.commerce.price(),
+  price: parseInt(faker.commerce.price()),
   rating: faker.datatype.number(5),
   catergory: faker.commerce.product(),
   image: faker.image.image(300, 300, true),

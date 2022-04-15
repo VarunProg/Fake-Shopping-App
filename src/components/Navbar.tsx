@@ -8,8 +8,12 @@ import { AiFillHome, AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../Hooks";
 import { removeProduct } from "../Store/cartSlice";
+import { Iproduct } from "./App";
 const sizeMedia = window.matchMedia("(max-width: 720px)");
-console.log(sizeMedia.matches, "media query");
+// console.log(sizeMedia.matches, "media query");
+const getTotalPrice = (items: Iproduct[]) => {
+  return items.reduce((acc, item) => (acc += item.price), 0);
+};
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState<boolean>(sizeMedia.matches); //media query
@@ -66,23 +70,26 @@ const Navbar = () => {
               {cartState.totalItems === 0 ? (
                 <h3>No items in Cart</h3>
               ) : (
-                <ul>
-                  {[...cartState.items].map((item) => {
-                    return (
-                      <li>
-                        {item.name}{" "}
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation(); //event prevent bubbled
-                            dispatch(removeProduct({ id: item.id }));
-                          }}
-                        >
-                          <IoIosRemoveCircleOutline />
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
+                <div className="cartContent">
+                  <ul>
+                    {[...cartState.items].map((item) => {
+                      return (
+                        <li>
+                          {item.name}{" "}
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation(); //event prevent bubbled
+                              dispatch(removeProduct({ id: item.id }));
+                            }}
+                          >
+                            <IoIosRemoveCircleOutline />
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <p>Total Price {getTotalPrice(cartState.items)}</p>
+                </div>
               )}
             </div>
           ) : null}
