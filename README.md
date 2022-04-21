@@ -11,4 +11,4 @@ Built using Redux, TypeScript, ReactJS custom  Hooks, Router, Implemented Mock S
 <a href ="https://reshop-app.netlify.app/">Live Preview </a>
 
 # Skills Used
-<h4>ReactJS, TypeScript, Redux, JavaScript, CSS, React-router v6, React-toastify to show alert, localforage to store new items in indexedDB, FakerJS to create fake data for items</h4>
+<h4>ReactJS, TypeScript, Redux, JavaScript, CSS, React-router v6, React-toastify to show alert, React-icons to show icons on Navbar localforage to store new items in indexedDB, FakerJS to create fake data for items</h4>
