@@ -3,9 +3,7 @@ Built using Redux, TypeScript, ReactJS custom  Hooks, Router, Implemented Mock S
 <h4> Features </h4>
 <ul>
   <li>Add items to cart,delete</li>
-    <li>User can add new items to the shopping cart</li>
-  
-    <li>check total price of items </li>
+    <li>User can add new items to the shopping cart</li><li>check total price of items </li>
  </ul>
 <hr>
 <a href ="https://reshop-app.netlify.app/">Live Preview </a>
