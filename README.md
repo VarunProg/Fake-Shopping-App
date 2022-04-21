@@ -1,6 +1,5 @@
 # Fake-Shopping-App
-Built using Redux, TypeScript, ReactJS custom  Hooks, Router, Implemented Mock Service Worker for Rest API, saved POST request using localForage in indexedDB, React-Toastify to show alerts, user can add, update, 
-<h3>Fake Shopping App</h3>
+Built using Redux, TypeScript, ReactJS custom  Hooks, Router, Implemented Mock Service Worker for Rest API, saved POST request using localForage in indexedDB, React-Toastify to show alerts, user can add, update,  implement faker Js to create data
 <h4> Features </h4>
 <ul>
   <li>Add items to cart</li>
