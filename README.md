@@ -5,7 +5,7 @@ Built using Redux, TypeScript, ReactJS custom  Hooks, Router, Implemented Mock S
   <li>Add items to cart</li>
     <li>User can add new items</li>
     <li>User can delete items</li>
-    <li>check total </li>
+    <li>check total price of items </li>
  </ul>
 <hr>
 <a href ="https://reshop-app.netlify.app/">Live Preview </a>
