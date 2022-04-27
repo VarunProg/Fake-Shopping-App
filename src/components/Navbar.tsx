@@ -1,27 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineInsertLink } from "react-icons/md";
-import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { AiFillHome, AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 // import { SiAboutdotme } from "react-icons/si";
 
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../Hooks";
-import { removeProduct } from "../Store/cartSlice";
-import { Iproduct } from "./App";
+import { Link, useLocation } from "react-router-dom";
+import Cart from "./Cart";
 const sizeMedia = window.matchMedia("(max-width: 720px)");
 // console.log(sizeMedia.matches, "media query");
-const getTotalPrice = (items: Iproduct[]) => {
-  return items.reduce((acc, item) => (acc += item.price), 0);
-};
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState<boolean>(sizeMedia.matches); //media query
   const [showMenu, setShowMenu] = useState<boolean>(false); //toggle classes to show li list
-  const [isCartOpen, setIsCartOpen] = useState(false);
   const { pathname } = useLocation();
-  const cartState = useAppSelector((state) => state.cart); // get cart state
-  const dispatch = useAppDispatch(); // updatind state
 
   //   console.log(sizeMedia);
   //event listener on screen size change
@@ -57,43 +47,7 @@ const Navbar = () => {
             <MdOutlineInsertLink size={28} />
           </Link>
         </li>
-        <li
-          className={`${pathname === "#" ? "active" : ""} cartIcon`}
-          onClick={() => {
-            setIsCartOpen(!isCartOpen);
-          }}
-        >
-          <FaShoppingCart size={23} />
-          <span>{cartState.totalItems}</span>
-          {isCartOpen ? (
-            <div className="cartItmes">
-              {cartState.totalItems === 0 ? (
-                <h3>No items in Cart</h3>
-              ) : (
-                <div className="cartContent">
-                  <ul>
-                    {[...cartState.items].map((item) => {
-                      return (
-                        <li>
-                          {item.name}{" "}
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation(); //event prevent bubbled
-                              dispatch(removeProduct({ id: item.id }));
-                            }}
-                          >
-                            <IoIosRemoveCircleOutline />
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  <p>Total Price {getTotalPrice(cartState.items)}</p>
-                </div>
-              )}
-            </div>
-          ) : null}
-        </li>
+        <Cart />
       </ul>
     );
   };
@@ -134,5 +88,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-//add remove item button
