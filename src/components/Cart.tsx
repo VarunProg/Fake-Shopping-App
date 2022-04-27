@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { useLocation } from "react-router-dom";
@@ -14,6 +14,11 @@ const Cart = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { pathname } = useLocation();
   const dispatch = useAppDispatch(); // updatind state
+  useEffect(() => {
+    console.log("set to local storage");
+    localStorage.setItem("cart", JSON.stringify(cartState));
+  }, [cartState]);
+
   return (
     <>
       <li

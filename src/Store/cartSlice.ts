@@ -30,7 +30,6 @@ export const cartSlice = createSlice({
         state.items.push(action.payload);
         state.ids.push(action.payload.id);
         state.totalItems += 1;
-        localStorage.setItem("cart", JSON.stringify(state));
       }
     },
     removeProduct: (state, action: PayloadAction<{ id: string }>) => {
@@ -41,7 +40,6 @@ export const cartSlice = createSlice({
       const ids = new Set([...state.ids]);
       ids.delete(action.payload.id);
       state.ids = [...ids];
-      localStorage.setItem("cart", JSON.stringify(state));
     },
   },
 });
