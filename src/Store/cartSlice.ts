@@ -15,10 +15,12 @@ const initialState: CartState = {
   items: [],
   ids: [],
 };
+const str = localStorage.getItem("cart");
+const json = str ? (JSON.parse(str) as typeof initialState) : initialState;
 
 export const cartSlice = createSlice({
   name: "cartState",
-  initialState,
+  initialState: json,
   reducers: {
     addProduct: (state, action: PayloadAction<Iproduct>) => {
       const ids = new Set([...state.ids]); // first time empty
@@ -28,6 +30,7 @@ export const cartSlice = createSlice({
         state.items.push(action.payload);
         state.ids.push(action.payload.id);
         state.totalItems += 1;
+        localStorage.setItem("cart", JSON.stringify(state));
       }
     },
     removeProduct: (state, action: PayloadAction<{ id: string }>) => {
@@ -38,6 +41,7 @@ export const cartSlice = createSlice({
       const ids = new Set([...state.ids]);
       ids.delete(action.payload.id);
       state.ids = [...ids];
+      localStorage.setItem("cart", JSON.stringify(state));
     },
   },
 });

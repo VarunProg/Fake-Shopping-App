@@ -14,6 +14,7 @@ const ProductItem = ({ product }: Iprops) => {
   const ids = useAppSelector((state) => state.cart.ids);
   const addToCart = () => {
     dispatch(addProduct(product));
+    console.log(addProduct(product), "products");
   };
   //disable button on click
   // const isAlreadyInCart = () => {
