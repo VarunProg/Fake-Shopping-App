@@ -16,7 +16,7 @@ const initialState: CartState = {
   ids: [],
 };
 const str = localStorage.getItem("cart");
-const json = str ? (JSON.parse(str) as typeof initialState) : initialState;
+const json: CartState = str ? JSON.parse(str) : initialState;
 
 export const cartSlice = createSlice({
   name: "cartState",
