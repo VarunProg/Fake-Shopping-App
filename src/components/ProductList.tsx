@@ -2,24 +2,25 @@ import React, { useEffect, useState } from "react";
 import { useAppSelector } from "../Hooks";
 import { Iproduct } from "./App";
 import ProductItem from "./ProductItem";
-import { useQuery } from "urql";
-const getProducts = `
- query{
-   GetCategories{
-     items
-   }
- }
-`;
 
 const ProductList = () => {
   const [products, setProducts] = useState<Iproduct[]>([]);
-  const [result, reexecuteQuery] = useQuery({
-    query: getProducts,
-  });
-  useEffect(() => {
-    console.log(result);
-  }, [result]);
 
+  //fetching data from mock server Api
+  const getProducts = async () => {
+    const res = await fetch("/newProducts");
+    const json: {
+      items: Iproduct[];
+      success: boolean;
+      total: number;
+    } = await res.json();
+    // console.log(json.items);
+    setProducts(json.items);
+  };
+  useEffect(() => {
+    // call getUsers function
+    getProducts();
+  }, []);
   return (
     <div className="container">
       {products.map((product: Iproduct) => (

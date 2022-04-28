@@ -6,7 +6,6 @@ specifiers:
   '@types/react': ^17.0.33
   '@types/react-dom': ^17.0.10
   '@vitejs/plugin-react': ^1.0.7
-  graphql: ^16.4.0
   immer: ^9.0.12
   localforage: ^1.10.0
   msw: ^0.38.2
@@ -17,12 +16,10 @@ specifiers:
   react-router-dom: '6'
   react-toastify: ^8.2.0
   typescript: ^4.5.4
-  urql: ^2.2.0
   vite: ^2.8.0
 
 dependencies:
   '@reduxjs/toolkit': 1.8.1_react-redux@7.2.8+react@17.0.2
-  graphql: 16.4.0
   immer: 9.0.12
   localforage: 1.10.0
   msw: 0.38.2
@@ -32,7 +29,6 @@ dependencies:
   react-redux: 7.2.8_react-dom@17.0.2+react@17.0.2
   react-router-dom: 6.2.2_react-dom@17.0.2+react@17.0.2
   react-toastify: 8.2.0_react-dom@17.0.2+react@17.0.2
-  urql: 2.2.0_graphql@16.4.0+react@17.0.2
 
 devDependencies:
   '@faker-js/faker': 6.0.0-alpha.7
@@ -324,14 +320,6 @@ packages:
     engines: {node: '>=14.0.0', npm: '>=7.0.0'}
     dev: true
 
-  /@graphql-typed-document-node/core/3.1.1_graphql@16.4.0:
-    resolution: {integrity: sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==}
-    peerDependencies:
-      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      graphql: 16.4.0
-    dev: false
-
   /@jridgewell/resolve-uri/3.0.5:
     resolution: {integrity: sha512-VPeQ7+wH0itvQxnG+lIzWgkysKIr3L9sslimFW55rHMdGu/qCQ5z5h9zq4gI8uBtqkpHhsF4Z/OwExufUCThew==}
     engines: {node: '>=6.0.0'}
@@ -451,16 +439,6 @@ packages:
     resolution: {integrity: sha512-fBZgytwhYAUkj/jC/FAV4RQ5EerRup1YQsXQCh8rZfiHkc4UahC192oH0smGwsXol3cL3A5oETuAHeQHmhXM4w==}
     dependencies:
       '@types/node': 17.0.21
-    dev: false
-
-  /@urql/core/2.4.4_graphql@16.4.0:
-    resolution: {integrity: sha512-TD+OS7jG1Ts6QkpU0TZ85i/vu40r71GF0QQFDhnWFtgkHcNwnpkIwWBMa72AR3j2imBTPpk61e/xb39uM/t37A==}
-    peerDependencies:
-      graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      '@graphql-typed-document-node/core': 3.1.1_graphql@16.4.0
-      graphql: 16.4.0
-      wonka: 4.0.15
     dev: false
 
   /@vitejs/plugin-react/1.2.0:
@@ -977,9 +955,9 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /graphql/16.4.0:
-    resolution: {integrity: sha512-tYDNcRvKCcfHREZYje3v33NSrSD/ZpbWWdPtBtUUuXx9NCo/2QDxYzNqCnMvfsrnbwRpEHMovVrPu/ERoLrIRg==}
-    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+  /graphql/16.3.0:
+    resolution: {integrity: sha512-xm+ANmA16BzCT5pLjuXySbQVFwH3oJctUVdy81w1sV0vBU0KgDdBGtxQOUd5zqOBk/JayAFeG8Dlmeq74rjm/A==}
+    engines: {node: ^12.22.0 || ^14.16.0 || >=16.0.0}
     dev: false
 
   /has-flag/3.0.0:
@@ -1185,7 +1163,7 @@ packages:
       chalk: 4.1.1
       chokidar: 3.5.3
       cookie: 0.4.2
-      graphql: 16.4.0
+      graphql: 16.3.0
       headers-polyfill: 3.0.4
       inquirer: 8.2.0
       is-node-process: 1.0.1
@@ -1615,18 +1593,6 @@ packages:
     hasBin: true
     dev: true
 
-  /urql/2.2.0_graphql@16.4.0+react@17.0.2:
-    resolution: {integrity: sha512-36wnWqDrpXqhwT5r2/qRSZXhb7Y4sXA0nLlYEd3uLgvfIdOA8kUaPdfTujzfrvfCcfiVVFxhzqVAhc8r17NMwQ==}
-    peerDependencies:
-      graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-      react: '>= 16.8.0'
-    dependencies:
-      '@urql/core': 2.4.4_graphql@16.4.0
-      graphql: 16.4.0
-      react: 17.0.2
-      wonka: 4.0.15
-    dev: false
-
   /util-deprecate/1.0.2:
     resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=}
     dev: false
@@ -1670,10 +1636,6 @@ packages:
     dependencies:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
-    dev: false
-
-  /wonka/4.0.15:
-    resolution: {integrity: sha512-U0IUQHKXXn6PFo9nqsHphVCE5m3IntqZNB9Jjn7EB1lrR7YTDY3YWgFvEvwniTzXSvOH/XMzAZaIfJF/LvHYXg==}
     dev: false
 
   /wrap-ansi/7.0.0:
